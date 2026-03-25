@@ -293,15 +293,12 @@ print(f"Visualization saved as '{output_img}'")
 
 # code to answer google form questions
 
-target_word = "research"
-if target_word in wordToId:
-    word_id = wordToId[target_word]
-    vector = W1Sg[word_id]
-    formatted_vector = ", ".join([f"{val:.4f}" for val in vector])
-    print(f"{target_word} - {formatted_vector}")
-else:
-    print(f"'{target_word}' is not in the vocabulary.")
+trgt = "research"
+wordId = wordToId[trgt]
+vector = W1Sg[wordId]
+formVec = ", ".join([f"{val:.4f}" for val in vector])
+print(f"{trgt} - {formVec}")
     
-top_10_words = sorted(vocabCnts.items(), key=lambda item: item[1], reverse=True)[:10]
-formatted_output = ", ".join([f"{word}, {count}" for word, count in top_10_words])
-print(formatted_output)
+top10 = sorted(vocabCnts.items(), key=lambda item: item[1], reverse=True)[:10]
+formOp = ", ".join([f"{word}, {count}" for word, count in top10])
+print(formOp)
